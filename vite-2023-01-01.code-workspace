@@ -15,7 +15,6 @@
 			"**/.nvmrc": true,
 			"**/dist": false,
 		},
-		"scss.validate": true,
 	},
 	"extensions": {
 		"recommendations": []
