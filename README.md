@@ -1,14 +1,20 @@
 # Vite + TypeScript + SCSS の開発環境
 
-## clone の仕方
+## 使い方
 
-git clone すると、通常は、カレントディレクトリにリポジトリ名と同じ名前のディレクトリができ、そこに clone されるが、  
-git clone の4つ目の引数に任意のディレクトリ目を書けば、そのディレクトリに内容が clone される。  
-例えば下記のようにすれば、`vite-vanilla-ts-scss`ディレクトリではなく、`hogehoge`ディレクトリが作られる。
+### git clone ~ npm insltall
+
+これは、Vite + TS + SCSS のプロジェクトのひな形だ。次の様に導入して開発を始めると、hogehoge というプロジェクト・ディレクトリが作られ、  
+そこに必要ファイルのコピー、モジュールのインストール、開発サーバーの起動、が行われる。  
+もちろん、hogehoge は任意の値に変更して使うとよい。
 
 ```sh
 git clone git@github.com:keijiek/vite-vanilla-ts-scss.git hogehoge
+npm install
+npm run dev
 ```
+
+---
 
 ## 目的
 
