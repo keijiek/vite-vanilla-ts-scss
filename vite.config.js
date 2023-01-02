@@ -4,29 +4,42 @@ import path from "path";
 import glob from "glob";
 import { fileURLToPath } from "node:url";
 
-const rootDir = path.resolve(__dirname, 'src');
-const publicDir = path.resolve(__dirname, 'public');
-const outDir = path.resolve(__dirname, 'dist');
+const rootValue       = path.resolve(__dirname, 'src');
+const publicDirValue  = path.resolve(__dirname, 'public');
+const outDirValue     = path.resolve(__dirname, 'dist');
 
 export default defineConfig({
-  root: rootDir,
+  root: rootValue,
   base: './',
-  publicDir: publicDir,
+  publicDir: publicDirValue,
   css: {
-    plugins: [autoprefixer],
+    // plugins: [autoprefixer],
+    postcss: {
+      plugins: [autoprefixer],
+    },
   },
   build: {
-    outDir: outDir,
+    outDir: outDirValue,
     emptyOutDir: true,
     rollupOptions: {
       input: Object.fromEntries(
-        glob.sync(path.resolve(rootDir, "*.html")).map(file => [
-          path.relative('src', file.slice(0, file.length - path.extname(file).length)),
+        glob.sync(path.resolve(rootValue, "*.html")).map(file => [
+          path.relative(rootValue, file.slice(0, file.length - path.extname(file).length)),
           fileURLToPath(new URL(file, import.meta.url))
         ])
       ),
+      // input: {
+      //  index: path.resolve(rootValue, "index.html"),
+      //  second: path.resolve(rootValue, "second.html"),
+      // },
       output: {
       },
     },
   },
+  plugins:[],
+  resolve: {
+    alias: {
+      // '~bootstrap': path.resolve(__dirname,'node_modules/bootstrap'),
+    }
+  }
 });

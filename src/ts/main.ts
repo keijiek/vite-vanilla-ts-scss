@@ -1,4 +1,4 @@
-import '../styles/style.scss';
+import '../scss/style.scss';
 import typescriptLogo from '../images/typescript.svg';
 import { setupCounter } from './counter';
 // import { resolve } from "path";
