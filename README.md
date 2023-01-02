@@ -1,5 +1,15 @@
 # Vite + TypeScript + SCSS の開発環境
 
+## clone の仕方
+
+git clone すると、通常は、カレントディレクトリにリポジトリ名と同じ名前のディレクトリができ、そこに clone されるが、  
+git clone の4つ目の引数に任意のディレクトリ目を書けば、そのディレクトリに内容が clone される。  
+例えば下記のようにすれば、`vite-vanilla-ts-scss`ディレクトリではなく、`hogehoge`ディレクトリが作られる。
+
+```sh
+git clone git@github.com:keijiek/vite-vanilla-ts-scss.git hogehoge
+```
+
 ## 目的
 
 - TS & SCSS (& Bootstrap) を用いたウェブサイト制作のための開発環境を Vite で作ること。
