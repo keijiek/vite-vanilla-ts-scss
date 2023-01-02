@@ -16,7 +16,8 @@
 
 ## 参考ウェブサイト
 
-- ()[]
+- [Vite公式・日本語版](https://ja.vitejs.dev/)
+- [Viteで始めるモダンで高速な開発環境構築](https://ics.media/entry/210708/)
 
 ## vite の利点だと感じた事
 
@@ -117,14 +118,12 @@ npx browserslist
 
 ---
 
-
 ## tree 構造を作る
 
 デフォルトのディレクトリ構造ではなく、次のような構造を目指す
 
 ```sh
 tree -I node_modules -I dist
-
 .
 ├── public
 │   └── vite.svg
@@ -150,6 +149,18 @@ tree -I node_modules -I dist
 ├── *.code-workspace
 └── vite.config.js
 ```
+
+---
+
+## 必須モジュールインストール(npm install --save-dev)
+
+```bash
+npm i -D sass autoprefixer glob
+```
+
+- sss : scss を使うのに必要
+- autoprefixer : ベンダープレフィクスを自動付加
+- glob : vite.config.js で複数の html をエントリーポイントに指定する時に使う
 
 ---
 
@@ -216,21 +227,14 @@ export default defineConfig({
   plugins:[]
 });
 ```
----
-
-## 必須モジュールインストール(npm install --save-dev)
-
-```bash
-npm i -D sass autoprefixer glob
-```
-
-- sss : scss を使うのに必要
-- autoprefixer : ベンダープレフィクスを自動付加
-- glob : vite.config.js で複数の html をエントリーポイントに指定する時に使う
 
 ---
 
 ## Bootstrap を使う場合の追加作業
+
+### 参考サイト
+
+- [Bootstrap5設置ガイド>導入>Viteでの使用](https://bootstrap-guide.com/getting-started/vite)
 
 ### npm で必要なモジュールをインストール(npm install --save)
 
@@ -270,3 +274,35 @@ import * as bootstrap from 'bootstrap'
 ```
 
 ---
+
+## package.json
+
+ここまででこうなっているはず。name などの不要な行は削除した状態で。
+
+```json
+{
+  "private": true,
+  "browserslist": [
+    "defaults and supports es6-module",
+    "maintained node versions"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.18",
+    "autoprefixer": "^10.4.13",
+    "glob": "^8.0.3",
+    "sass": "^1.57.1",
+    "typescript": "^4.9.3",
+    "vite": "^4.0.0"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.6",
+    "bootstrap": "^5.2.3"
+  }
+}
+
+```
