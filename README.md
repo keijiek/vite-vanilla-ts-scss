@@ -215,7 +215,7 @@ export default defineConfig({
       // 複数の html ファイルをエントリーポイントとする input 設定。src に追加した html が自動でエントリーポイントとなる。
       input: Object.fromEntries(
         glob.sync(path.resolve rootValue, "*.html").map(file => [
-          path.relative rootValue, file.slice(0, file.length - path.extname(file).length),
+          path.relative(rootValue, file.slice(0, file.length - path.extname(file).length)),
           fileURLToPath(new URL(file, import.meta.url))
         ])
       ),
