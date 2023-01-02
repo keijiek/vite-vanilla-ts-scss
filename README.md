@@ -4,12 +4,28 @@
 
 ### git clone ~ npm insltall
 
-これは、Vite + TS + SCSS のプロジェクトのひな形だ。次の様に導入して開発を始めると、hogehoge というプロジェクト・ディレクトリが作られ、  
-そこに必要ファイルのコピー、モジュールのインストール、開発サーバーの起動、が行われる。  
-もちろん、hogehoge は任意の値に変更して使うとよい。
+これは、Vite + TS + SCSS のプロジェクトのひな形だ。次の様に導入して開発を始めると、hogehoge というプロジェクト・ディレクトリが作られる。
+hogehoge を任意の値にするとよい。
 
 ```sh
 git clone git@github.com:keijiek/vite-vanilla-ts-scss.git hogehoge
+```
+
+リモートリポジトリも作っておき、git 管理を仕切り直す。
+
+```sh
+rm -rf .git
+git init
+git add -A
+git commit -m "first commit"
+git branch -M main
+git remote add origin git@github.com:**/**.git (←リモートリポジトリのパスを正しく記述)
+git push -u origin main
+```
+
+package.json に基づいてモジュールを入れ、開発サーバーを起動。
+
+```sh
 npm install
 npm run dev
 ```
