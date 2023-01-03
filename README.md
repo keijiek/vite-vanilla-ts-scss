@@ -230,8 +230,9 @@ export default defineConfig({
   },
   // ビルド用設定群
   build: {
-    outDir: outDirValue, // 規定値は root からの相対パスとしての'dist'。root が変更されているので絶対パスとして dist dir を指定しなおしている。
-    emptyOutDir: true,  // true なら build 時に outDir の中身を削除。outDir が root 内にあると自動で true 扱いだが、root が変更され outDir が root 外にあるので、明示的に true とする。
+    outDir: outDirValue,  // 規定値は root からの相対パスとしての'dist'。root が変更されているので絶対パスとして dist dir を指定しなおしている。
+    emptyOutDir: true,    // true なら build 時に outDir の中身を削除。outDir が root 内にあると自動で true 扱いだが、root が変更され outDir が root 外にあるので、明示的に true とする。
+    minify: 'esbuild',    // false | 'esbuild' 。false だとミニファイしない。
     // RollupOptions は、rollup.js の機能を使うための設定なので、設定項目の解説は上記の別ページを参照せよ。
     rollupOptions: {
       // 複数の html ファイルをエントリーポイントとする input 設定。src に追加した html が自動でエントリーポイントとなる。

@@ -21,6 +21,7 @@ export default defineConfig({
   build: {
     outDir: outDirValue,
     emptyOutDir: true,
+    minify: 'esbuild',// 値を false:boolean にするとminifyしない。規定値 'esbuild':string.
     rollupOptions: {
       input: Object.fromEntries(
         glob.sync(path.resolve(rootValue, "*.html")).map(file => [
